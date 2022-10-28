@@ -16,8 +16,6 @@ public class Main {
             saveGame(path, saves.get(path));
         }
         zipFiles("D:\\Games\\savegames\\save.zip", saves.keySet().stream().toList());
-
-
     }
 
     public static void saveGame(String path, GameProgress gp) {
@@ -27,8 +25,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (FileOutputStream fs = new FileOutputStream(file);
-             ObjectOutputStream os = new ObjectOutputStream(fs)) {
+        try (FileOutputStream fs = new FileOutputStream(file); ObjectOutputStream os = new ObjectOutputStream(fs)) {
             os.writeObject(gp);
         } catch (IOException e) {
             e.printStackTrace();
